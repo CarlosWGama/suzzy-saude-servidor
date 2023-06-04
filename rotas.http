@@ -1,0 +1,97 @@
+@baseURL = http://localhost:8000/api
+
+#@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiYWRtaW4iOjB9.6Ms2Um_PaE6SaFIt3TYLTes4dqPnpdbA6fynoGjkHjI
+@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NCwiYWRtaW4iOjB9.mgvI_oSuCLqwmxkW9lgKOn9BwCSaTQFr6s0DfU9xmh8
+
+
+
+###
+GET {{baseURL}}
+
+###
+POST {{baseURL}}/usuarios
+Content-Type: application/json
+
+{
+	"cpf": "111.111.111-11", 
+	"data_nascimento": "28/11/1990", 
+	"email": "carlos2@teste.com", 
+    "escolaridade": "aaaaa", 
+    "estado_civil": 1, 
+    "genero": 1, 
+    "nome": "Carlos", 
+    "orientacao_sexual": 1, 
+    "problema_mental": false, 
+    "problema_mental_quais": "", 
+    "senha": "123456", 
+    "telefone": "(82) 9 9134-1378", 
+    "uso_medicamento": false, 
+    "uso_medicamento_quais": "", 
+    "zona_residencial": 1
+}
+
+###
+POST {{baseURL}}/login
+Content-Type: application/json
+
+{
+    "senha": "123456",
+    "email": "carlos2@teste.com"
+}
+
+###
+GET {{baseURL}}/usuarios
+Authorization: Bearer {{token}}
+
+### Atualiza o usuário
+PUT {{baseURL}}/usuarios
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+	"cpf": "222.222.222-22", 
+	"data_nascimento": "28/11/1990", 
+    "escolaridade": "bbbbbb", 
+    "estado_civil": 1, 
+    "genero": 1, 
+    "nome": "Carlos", 
+    "orientacao_sexual": 1, 
+    "problema_mental": false, 
+    "problema_mental_quais": "", 
+    "senha": "123456", 
+    "telefone": "(82) 9 9134-1378", 
+    "uso_medicamento": false, 
+    "uso_medicamento_quais": "", 
+    "zona_residencial": 1
+}
+
+### Remove um usuário 
+DELETE {{baseURL}}/usuarios
+Authorization: Bearer {{token}}
+
+
+
+#################################################################
+# Contatos
+#################################################################
+
+### Cadastra
+POST {{baseURL}}/contatos
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "nome": "Contato 3",
+    "telefone": "(82) 9 7777-7777"
+}
+
+### Busca
+GET {{baseURL}}/contatos
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+### Remove
+DELETE {{baseURL}}/contatos/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
