@@ -117,7 +117,7 @@ class UsuariosController extends ApiController {
     public function buscarDados(Request $request) {
         $id = $this->getUsuarioID($request);
         $usuario = Usuario::with('extras')->with('contatos')->findOrFail($id);
-        return response()->json(['usuario'=> $usuario], 200);
+        return response()->json($usuario, 200);
     }
   
 
