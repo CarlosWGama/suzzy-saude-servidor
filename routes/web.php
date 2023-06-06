@@ -34,5 +34,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
         Route::get('/edicao/{id}', 'edicao')->name('admin.usuarios.edicao');
         Route::post('/editar/{id}', 'editar')->name('admin.usuarios.editar');
         Route::get('/excluir/{id?}', 'excluir')->name('admin.usuarios.excluir');
+        Route::get('/download/{id?}', 'download')->name('admin.usuarios.download');
     });
 });

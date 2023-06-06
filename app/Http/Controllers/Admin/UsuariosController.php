@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
 use App\Rules\Cpf;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 /**
  * Controller responsável pela manipulação dos dados do usuários 
@@ -87,5 +88,16 @@ class UsuariosController extends AdminController {
     public function excluir(int $id) {
         Usuario::destroy($id);
         return redirect()->route('admin.usuarios.listar')->with('sucesso', 'Usuário excluido');
+    }
+
+    
+     /**
+     * Baixa em PDF os dados do usuário respondido
+     */
+    public function download(Request $request, int $id) {
+        $dados['usuario'] = Usuario::with('extras')->with('contatos')->findOrFail($id);
+        $pdf = Pdf::loadView('admin.usuarios.pdf', $dados);
+        //return $pdf->download('usuario.pdf');
+        return $pdf->stream();
     }
 }

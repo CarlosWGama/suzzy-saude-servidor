@@ -71,6 +71,9 @@
                             <a href="{{route('admin.usuarios.edicao', ['id' => $usuario->id])}}" title="Editar" class="btn btn-sm btn-success">
                                <i class="fa fa-edit"></i>
                             </a>
+                            <a href="{{route('admin.usuarios.download', ['id' => $usuario->id])}}" target="_blank" title="Editar" class="btn btn-sm btn-info">
+                                <i class="fa fa-download"></i>
+                             </a>
                             <span class="btn btn-sm btn-danger remover-modal" title="Excluir" data-toggle="modal" data-target="#smallmodal" data-id="{{$usuario->id}}"><i class="fa fa-trash"></i></span>
                         </td>
                     </tr>
