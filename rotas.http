@@ -95,3 +95,16 @@ Authorization: Bearer {{token}}
 DELETE {{baseURL}}/contatos/1
 Content-Type: application/json
 Authorization: Bearer {{token}}
+
+#################################################################
+# Contatos
+#################################################################
+
+### Cadastra
+POST {{baseURL}}/pedidos-ajudas
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "origem": 1
+}

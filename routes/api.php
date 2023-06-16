@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ContatosController;
+use App\Http\Controllers\Api\PedidosAjudaController;
 use App\Http\Controllers\Api\UsuariosController;
 use Illuminate\Http\Request;
 
@@ -32,5 +33,10 @@ Route::group(['middleware' => ['jwt']], function () {
         Route::post('/', 'cadastrar');
         Route::get('/', 'listar');
         Route::delete('/{id}', 'excluir');
+    }); 
+
+    //PEDIDO AJUDA
+    Route::controller(PedidosAjudaController::class)->prefix('pedidos-ajudas')->group(function() {
+        Route::post('/', 'cadastrar');
     }); 
 });
