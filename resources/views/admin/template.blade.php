@@ -213,6 +213,17 @@
                                 </li>
                             </ul>
 
+                            {{-- PEDIDOS AJUDA --}}
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li class="@if(isset($menu) && $menu=='pedidos') active @endif">
+                                    <a href="{{route('admin.pedidos.listar')}}" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon"><i class="ti-dashboard"></i><b>D</b></span>
+                                        <span class="pcoded-mtext">Pedidos Ajuda</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                            </ul>
+
                             {{-- MACRO ----- SISTEMA ------  --}}
                             <div class="pcoded-navigation-label">Sistema</div>
                                                    
