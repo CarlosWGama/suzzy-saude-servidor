@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\PedidosAjuda;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
 
@@ -18,9 +19,8 @@ class DashboardController extends AdminController {
     /** Tela Inicial do Dashboard */
     public function index() {
         $this->dados['usuarios'] = Usuario::count();
-        $this->dados['noticias'] = 0;
-        $this->dados['imagens'] = 0;
-        $this->dados['videos'] = 0;
+        $this->dados['ajudaNaoAtendidos'] = PedidosAjuda::where('visualizado', 'false')->count();
+        $this->dados['ajudaTotal'] = PedidosAjuda::count();
         return view('admin.dashboard.index', $this->dados);
     }
 }
