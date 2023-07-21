@@ -18,6 +18,7 @@ class PedidosAjudaController extends AdminController {
         $this->dados['filtro'] = $request->visualizado ?? -1;
         
         $pedidos = PedidosAjuda::with('usuario')->orderBy('id', 'desc');
+        // print_r( $pedidos);die;
         if (isset($request->visualizado) && $request->visualizado >= 0)
             $pedidos = $pedidos->where('visualizado', $request->visualizado);
         $this->dados['pedidos'] = $pedidos->simplePaginate(10)->withQueryString();

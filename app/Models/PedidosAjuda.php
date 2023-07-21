@@ -13,17 +13,18 @@ class PedidosAjuda extends Model {
     protected $fillable = ['usuario_id', 'origem', 'visualizado'];
 
     public function usuario(): HasOne {
-        return $this->hasOne(Usuario::class, 'id');
+        return $this->hasOne(Usuario::class, 'id', 'usuario_id');
     }
 
     //Adiciona a descrição da origem
     public function getOrigemDescricaoAttribute() {
-        //1 - cvv | 2 - samu | 3 - policia | 4 - hospital
         switch($this->origem) {
             case 1: return 'CVV';
             case 2: return 'SAMU';
             case 3: return 'Polícia';
             case 4: return 'Hospital';
+            case 5: return 'CAVIDA';
+            case 6: return 'SMS';
             default: return 'Não informado';
         }
     }

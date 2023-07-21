@@ -1,7 +1,7 @@
 @baseURL = http://localhost:8000/api
 
 #@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiYWRtaW4iOjB9.6Ms2Um_PaE6SaFIt3TYLTes4dqPnpdbA6fynoGjkHjI
-@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NCwiYWRtaW4iOjB9.mgvI_oSuCLqwmxkW9lgKOn9BwCSaTQFr6s0DfU9xmh8
+@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwiYWRtaW4iOjB9.mOp8kTQA6undz4u6zckyZJ1DCKMjifTks0TjfhgE7Ng
 
 
 
