@@ -50,7 +50,7 @@
 
         <ul>
             @foreach($usuario->contatos as $contato)
-            <li><b>{{$contato->nome}}</b> {{$contato->telefone}}</li>
+            <li><b>{{$contato->nome}} ({{$contato->relacionamento_descricao}})</b> {{$contato->telefone}}</li>
             @endforeach
         </ul>
     @endif

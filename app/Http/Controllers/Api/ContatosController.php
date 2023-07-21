@@ -17,8 +17,9 @@ class ContatosController extends ApiController {
         
         //VALIDA
         $validations = Validator::make($request->all(), [
-            'nome'      => 'required',
-            'telefone'  => 'required'
+            'nome'              => 'required',
+            'telefone'          => 'required',
+            'relacionamento'    => 'required|integer',
         ]);
 
         if ($validations->fails()) return response()->json($validations->errors(), 400);

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nome');
             $table->string('telefone');
             $table->foreignId('usuario_id')->references('id')->on('usuarios')->cascadeOnDelete();
+            $table->integer('relacionamento')->comment('1 - Pai | 2 - Mãe | 3 - Irmã(o) | 4 - Amigo(a) | 5 - Parente | 6 - Outro');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -15,7 +15,7 @@ class PedidosAjudaController extends ApiController {
         
         //VALIDA
         $validations = Validator::make($request->all(), [
-            'origem'        => 'required|integer',
+            'origem'            => 'required|integer',
         ]);
 
         if ($validations->fails()) return response()->json($validations->errors(), 400);
