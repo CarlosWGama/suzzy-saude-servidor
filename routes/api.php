@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\ContatosController;
 use App\Http\Controllers\Api\PedidosAjudaController;
 use App\Http\Controllers\Api\UsuariosController;
+use App\Http\Controllers\Api\QuestionarioDiarioController;
 use Illuminate\Http\Request;
 
 /*
@@ -37,6 +38,13 @@ Route::group(['middleware' => ['jwt']], function () {
 
     //PEDIDO AJUDA
     Route::controller(PedidosAjudaController::class)->prefix('pedidos-ajudas')->group(function() {
+        Route::post('/', 'cadastrar');
+    }); 
+
+
+    //USUARIOS
+    Route::controller(QuestionarioDiarioController::class)->prefix('questionarios')->group(function() {
+        Route::get('/', 'buscar');    
         Route::post('/', 'cadastrar');
     }); 
 });

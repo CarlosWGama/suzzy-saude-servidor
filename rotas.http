@@ -1,7 +1,7 @@
 @baseURL = http://localhost:8000/api
 
 #@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiYWRtaW4iOjB9.6Ms2Um_PaE6SaFIt3TYLTes4dqPnpdbA6fynoGjkHjI
-@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwiYWRtaW4iOjB9.mOp8kTQA6undz4u6zckyZJ1DCKMjifTks0TjfhgE7Ng
+@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.EVGC36tvMWZqq24TdpAqBqbSWBHcUzqGWeYy5jO10MU
 
 
 
@@ -15,7 +15,7 @@ Content-Type: application/json
 {
 	"cpf": "111.111.111-11", 
 	"data_nascimento": "28/11/1990", 
-	"email": "carlos2@teste.com", 
+	"email": "carlos@teste.com", 
     "escolaridade": "aaaaa", 
     "estado_civil": 1, 
     "genero": 1, 
@@ -36,7 +36,7 @@ Content-Type: application/json
 
 {
     "senha": "123456",
-    "email": "carlos2@teste.com"
+    "email": "carlos@teste.com"
 }
 
 ###
@@ -82,7 +82,8 @@ Authorization: Bearer {{token}}
 
 {
     "nome": "Contato 3",
-    "telefone": "(82) 9 7777-7777"
+    "telefone": "(82) 9 7777-7777",
+    "relacionamento": 1
 }
 
 ### Busca
@@ -97,7 +98,7 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 #################################################################
-# Contatos
+# PEDIDO AJUDA
 #################################################################
 
 ### Cadastra
@@ -108,3 +109,30 @@ Authorization: Bearer {{token}}
 {
     "origem": 1
 }
+
+
+#################################################################
+# QUESTIONARIO DIARIO
+#################################################################
+
+### Cadastra
+POST {{baseURL}}/questionarios
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{   
+    "tristeza": 1,
+    "choro": 1,
+    "medo": 1,
+    "desconcentracao": 1,
+    "nauseas": 1,
+    "insonia": 1,
+    "higiene": 1,
+    "isolamento": 1
+}
+
+### BUSCAR
+
+GET {{baseURL}}/questionarios
+Content-Type: application/json
+Authorization: Bearer {{token}}
