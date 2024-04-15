@@ -28,4 +28,12 @@ class Usuario extends Model {
         return $this->hasMany(Contato::class, 'usuario_id');
     }
 
+    public function alertas(): HasMany {
+        return $this->hasMany(Alerta::class, 'usuario_id');
+    }
+
+    public function questionarios(): HasMany {
+        return $this->hasMany(QuestionarioDiario::class, 'usuario_id');
+    }
+
 }

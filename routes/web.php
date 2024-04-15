@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\PedidosAjudaController;
 use App\Http\Controllers\Admin\UsuariosController;
+use App\Http\Controllers\Admin\AlertaController;
 
 //============================ ADMIN ======================================//
 Route::get('/', function() {
@@ -27,7 +28,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
 
     // USUARIOS
-    
     Route::controller(UsuariosController::class)->prefix('usuarios')->group(function() {
         Route::get('/', 'index')->name('admin.usuarios.listar');
         Route::get('/novo', 'novo')->name('admin.usuarios.novo');
@@ -38,9 +38,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
         Route::get('/download/{id?}', 'download')->name('admin.usuarios.download');
     });
 
+    //Pedido Ajuda
     Route::controller(PedidosAjudaController::class)->prefix('pedidos-ajuda')->group(function() {
         Route::get('/', 'listar')->name('admin.pedidos.listar');
         Route::get('/atendimento/{id}/{atendido}', 'atendimento')->name('admin.pedidos.atendimento');
         Route::get('/excluir/{id?}', 'excluir')->name('admin.pedidos.excluir');
+    });
+
+    //Alerta
+    Route::controller(AlertaController::class)->prefix('alertas')->group(function() {
+        Route::get('/', 'listar')->name('admin.alertas.listar');
+        Route::get('/atendimento/{id}/{atendido}', 'atendimento')->name('admin.alertas.atendimento');
+        Route::get('/excluir/{id?}', 'excluir')->name('admin.alertas.excluir');
     });
 });

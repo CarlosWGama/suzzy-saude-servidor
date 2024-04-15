@@ -95,7 +95,7 @@ class UsuariosController extends AdminController {
      * Baixa em PDF os dados do usuário respondido
      */
     public function download(Request $request, int $id) {
-        $dados['usuario'] = Usuario::with('extras')->with('contatos')->findOrFail($id);
+        $dados['usuario'] = Usuario::with('extras')->with('contatos')->with('alertas')->with('questionarios')->findOrFail($id);
         $pdf = Pdf::loadView('admin.usuarios.pdf', $dados);
         //return $pdf->download('usuario.pdf');
         return $pdf->stream();

@@ -46,14 +46,14 @@ class QuestionarioDiarioController extends ApiController {
             $planta->usuario_id = $usuarioID;
             $planta->dias_totais_aguados++;
             if (!$planta->ultima_regada) {
-                $planta->dias_seguidos++;
+                $planta->dias_seguidos = 1;
             } else {
                 $data_inicio = new \DateTime($planta->ultima_regada);
                 $data_fim = new \DateTime(date('Y-m-d'));
     
                 // Resgata diferença entre as datas
                 $dateInterval = $data_inicio->diff($data_fim);
-                if ($dateInterval->days > 1) $planta->dias_seguidos++;
+                if ($dateInterval->days == 1) $planta->dias_seguidos++;
                 else $planta->dias_seguidos = 1;
             }
             $planta->ultima_regada = date('Y-m-d');
@@ -68,7 +68,7 @@ class QuestionarioDiarioController extends ApiController {
             if ($valor == 1) $triste++;
         }
 
-        if ($triste > 0) {
+        if ($triste >= 2) {
             Alerta::create([
                 'usuario_id'        => $usuarioID,
                 'data_ocorrencia'   => date('Y-m-d')

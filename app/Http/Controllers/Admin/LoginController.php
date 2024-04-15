@@ -23,7 +23,7 @@ class LoginController extends Controller {
     /** Faz com o que o usuário tente realizar o login */
     public function logar(Request $request) {
         $usuario = Usuario::where('email', $request->email)->first();
-        if ($usuario != null && Hash::check($request->senha, $usuario->senha) ) {
+        if ($usuario != null && Hash::check($request->senha, $usuario->senha) && $usuario->admin ) {
             session(['usuario' => $usuario]);
             return redirect()->route('admin.dashboard');
         } else

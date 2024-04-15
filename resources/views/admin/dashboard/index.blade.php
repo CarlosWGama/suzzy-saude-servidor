@@ -26,25 +26,39 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- NOTICIAS --}}
+                                    {{-- AJUDA --}}
                                     <div class="col-sm-6 p-b-20 p-t-20 r-default">
+                                        <div class="row align-items-center text-center">
+                                            <div class="col-4 p-r-0">
+                                                <i class="far fa-calendar text-c-red f-24"></i>
+                                            </div>
+                                            <div class="col-8 p-l-0">
+                                                <h5>{{$alertas}}</h5>
+                                                <p class="text-muted m-b-0">Novos Alertas</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- PEDIDO AJUDA --}}
+                                <div class="row align-items-center b-b-default">
+                                    {{-- NÃO ATENDIDOS --}}
+                                    <div class="col-sm-6 b-r-default p-b-20 p-t-20">
                                         <div class="row align-items-center text-center">
                                             <div class="col-4 p-r-0">
                                                 <i class="far fa-comments text-c-red f-24"></i>
                                             </div>
                                             <div class="col-8 p-l-0">
                                                 <h5>{{$ajudaNaoAtendidos}}</h5>
-                                                <p class="text-muted m-b-0">Pedidos ajuda não atendidos</p>
+                                                <p class="text-muted m-b-0">Novos Pedidos de ajuda </p>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row align-items-center">
-                                    {{-- FALE CONOSCO --}}
-                                    <div class="col-sm-12 p-b-20 p-t-20">
+                                    {{-- TOTAIS --}}
+                                    <div class="col-sm-6 p-b-20 p-t-20 r-default">
                                         <div class="row align-items-center text-center">
                                             <div class="col-4 p-r-0">
-                                                <i class="fas fa-comments text-c-yellow f-24"></i>
+                                                <i class="far fa-comments text-c-yellow f-24"></i>
                                             </div>
                                             <div class="col-8 p-l-0">
                                                 <h5>{{$ajudaTotal}}</h5>
@@ -53,6 +67,8 @@
                                         </div>
                                     </div>
                                 </div>
+
+                            
                             </div>
                         </div>
                     </div>

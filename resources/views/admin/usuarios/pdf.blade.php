@@ -55,6 +55,64 @@
         </ul>
     @endif
 
+     <!-- ALERTAS -->
+     @if(count($usuario->alertas))
+     <h2 class="secao">Alertas para possíveis tentativas</h2>
+
+     <ul>
+        <li><b>Dia da ocorrência:</b></li>
+         @foreach($usuario->alertas as $alerta)
+         <li>{{$alerta->data_ocorrencia}}</li>
+         @endforeach
+        </ul>
+    @endif
+
+      <!-- ALERTAS -->
+      @if(count($usuario->alertas))
+      <h2 class="secao">Alertas para possíveis tentativas</h2>
+ 
+      <ul>
+         <li><b>Dia da ocorrência:</b></li>
+          @foreach($usuario->alertas as $alerta)
+          <li>{{$alerta->data_ocorrencia}}</li>
+          @endforeach
+      </ul>
+      @endif
+      
+    <!-- QUESTIONARIO DIARIO -->
+    @if(count($usuario->questionarios))
+    <h2 class="secao">Questionario Diário</h2>
+    
+    <Table border='1'>
+        <thead>
+            <th>Dia</th>
+            <th>Tristeza</th>
+            <th>Choro</th>
+            <th>Medo</th>
+            <th>Desconcentração</th>
+            <th>Naúseas</th>
+            <th>Insônia</th>
+            <th>Higiene</th>
+            <th>Isolamento</th>
+        </thead>
+
+        @foreach($usuario->questionarios as $questionario)
+        <tr>
+            <td>{{date('d/m/Y', strtotime($questionario->dia))}}</td>
+            <td>{{$questionario->tristeza_descricao}}</td>
+            <td>{{$questionario->choro_descricao}}</td>
+            <td>{{$questionario->medo_descricao}}</td>
+            <td>{{$questionario->desconcentracao_descricao}}</td>
+            <td>{{$questionario->nauseas_descricao}}</td>
+            <td>{{$questionario->insonia_descricao}}</td>
+            <td>{{$questionario->higiene_descricao}}</td>
+            <td>{{$questionario->isolamento_descricao}}</td>
+        </tr>
+        @endforeach
+          
+    </Table>
+    @endif
+
 
 </body>
 </html>

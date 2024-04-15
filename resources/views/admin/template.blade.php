@@ -217,8 +217,19 @@
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="@if(isset($menu) && $menu=='pedidos') active @endif">
                                     <a href="{{route('admin.pedidos.listar')}}" class="waves-effect waves-dark">
-                                        <span class="pcoded-micon"><i class="ti-dashboard"></i><b>D</b></span>
+                                        <span class="pcoded-micon"><i class="ti-alert"></i><b>D</b></span>
                                         <span class="pcoded-mtext">Pedidos Ajuda</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                             {{-- ALERTAS --}}
+                             <ul class="pcoded-item pcoded-left-item">
+                                <li class="@if(isset($menu) && $menu=='alertas') active @endif">
+                                    <a href="{{route('admin.alertas.listar')}}" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon"><i class="ti-info"></i><b>A</b></span>
+                                        <span class="pcoded-mtext">Alertas</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
