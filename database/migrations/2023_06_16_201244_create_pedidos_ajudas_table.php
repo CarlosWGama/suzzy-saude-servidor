@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('usuario_id')->references('id')->on('usuarios')->cascadeOnDelete();
             $table->boolean('visualizado')->default(false);
+            $table->softDeletes();
             $table->integer('origem')->comment('1 - cvv | 2 - samu | 3 - policia | 4 - hospital');
             $table->timestamps();
         });
