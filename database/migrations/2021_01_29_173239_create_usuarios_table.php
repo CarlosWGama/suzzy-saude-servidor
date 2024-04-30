@@ -19,7 +19,6 @@ class CreateUsuariosTable extends Migration
             $table->string('email');
             $table->string('senha');
             $table->boolean('admin')->default(false);
-            $table->softDeletes();
             $table->timestamps();
         });
     }
