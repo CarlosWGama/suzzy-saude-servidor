@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('alertas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('usuario_id')->references('id')->on('usuarios');
+            $table->foreignId('usuario_id')->references('id')->on('usuarios')->cascadeOnDelete();
             $table->date('data_ocorrencia');
             $table->softDeletes();
             $table->timestamps();

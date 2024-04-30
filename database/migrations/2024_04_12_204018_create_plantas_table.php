@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('dias_seguidos')->default(0);
             $table->integer('dias_totais_aguados')->default(0);
             $table->date('ultima_regada');
-            $table->foreignId('usuario_id')->references('id')->on('usuarios');
+            $table->foreignId('usuario_id')->references('id')->on('usuarios')->cascadeOnDelete();
             $table->softDeletes();
             $table->timestamps();
         });

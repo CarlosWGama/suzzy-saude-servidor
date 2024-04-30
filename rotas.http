@@ -1,7 +1,7 @@
 @baseURL = http://localhost:8000/api
 
 #@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiYWRtaW4iOjB9.6Ms2Um_PaE6SaFIt3TYLTes4dqPnpdbA6fynoGjkHjI
-@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.EVGC36tvMWZqq24TdpAqBqbSWBHcUzqGWeYy5jO10MU
+@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6M30.f1Y7ehh3IHfUVPrfvS5rifmkCx31_aOaIHZoqj3HjNE
 
 
 
@@ -15,7 +15,7 @@ Content-Type: application/json
 {
 	"cpf": "111.111.111-11", 
 	"data_nascimento": "28/11/1990", 
-	"email": "carlos@teste.com", 
+	"email": "carlos3@teste.com", 
     "escolaridade": "aaaaa", 
     "estado_civil": 1, 
     "genero": 1, 
@@ -41,6 +41,10 @@ Content-Type: application/json
 
 ###
 GET {{baseURL}}/usuarios
+Authorization: Bearer {{token}}
+
+### EXCLUI OS DADOS DO USUARIO
+DELETE {{baseURL}}/usuarios
 Authorization: Bearer {{token}}
 
 ### Atualiza o usuário

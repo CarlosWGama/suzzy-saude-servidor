@@ -27,6 +27,7 @@ Route::group(['middleware' => ['jwt']], function () {
     Route::controller(UsuariosController::class)->prefix('usuarios')->group(function() {
         Route::get('/', 'buscarDados');    
         Route::put('/', 'atualizarDados');
+        Route::delete('/', 'excluir');
     }); 
 
     //CONTATOS
@@ -42,9 +43,10 @@ Route::group(['middleware' => ['jwt']], function () {
     }); 
 
 
-    //USUARIOS
+    //QUESTIONARIOS DIARIOS
     Route::controller(QuestionarioDiarioController::class)->prefix('questionarios')->group(function() {
         Route::get('/', 'buscar');    
         Route::post('/', 'cadastrar');
+        
     }); 
 });

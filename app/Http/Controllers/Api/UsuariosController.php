@@ -135,4 +135,12 @@ class UsuariosController extends ApiController {
 
         return response()->json(['sucesso' => true], 200);
     }
+
+    /** Excluir o usuário logado */
+    public function excluir(Request $request) {
+        $id = $this->getUsuarioID($request);
+        $usuario = Usuario::findOrFail($id);
+        $usuario->delete();
+        return response()->json("Excluido", 200);
+    }
 }

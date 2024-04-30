@@ -24,7 +24,7 @@ return new class extends Migration
             $table->integer('higiene');
             $table->integer('isolamento');
             $table->date('dia');
-            $table->foreignId('usuario_id')->references('id')->on('usuarios');
+            $table->foreignId('usuario_id')->references('id')->on('usuarios')->cascadeOnDelete();
             $table->softDeletes();
             $table->timestamps();
         });
